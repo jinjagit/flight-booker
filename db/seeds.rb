@@ -63,8 +63,8 @@ durations.each do |flight|
   inbound.each {|f| flights << f}
 end
 
-Airport::delete_all # delete for production
-Flight::delete_all # delete for production
+# Airport::delete_all # not for production
+# Flight::delete_all # not for production
 
 Airport.create!(name: durations[0][0]) # CDG
 Airport.create!(name:  durations[4][0]) # FCO
