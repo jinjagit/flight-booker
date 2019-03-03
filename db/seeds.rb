@@ -41,7 +41,7 @@ def create_flights(from, to, hours, mins, num)
   interval = ((last - first) / (num - 1)).floor
   duration_int = hours * 60 + mins
   num.times do |i|
-    code = 'IF' + (rand(3555) + 2000).to_s
+    code = 'DF' + (rand(3555) + 2000).to_s
     departs_int = first + interval * i
     arrives = mins_to_time(departs_int + duration_int)
     departs = mins_to_time(departs_int)
@@ -63,8 +63,8 @@ durations.each do |flight|
   inbound.each {|f| flights << f}
 end
 
-# Airport::delete_all # not for production
-# Flight::delete_all # not for production
+Airport::delete_all # not for production
+Flight::delete_all # not for production
 
 Airport.create!(name: durations[0][0]) # CDG
 Airport.create!(name:  durations[4][0]) # FCO
@@ -72,6 +72,9 @@ Airport.create!(name:  durations[7][0]) # FRA
 Airport.create!(name:  durations[9][0]) # LHR
 Airport.create!(name:  durations[3][1]) # MAD
 
-flights.each { |f| Flight.create(code: f[0], from: f[1], to: f[2],
-                                 duration: f[3], departure: f[4],
-                                 arrival: f[5])}
+flights.each do |f|
+  @from = Airport.find_by(name: f[1])
+  @to = Airport.find_by(name: f[2])
+  Flight.create(code: f[0], from_id: @from.id, to_id: @to.id, duration: f[3],
+                departure: f[4], arrival: f[5])
+end
