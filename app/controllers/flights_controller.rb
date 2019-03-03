@@ -1,16 +1,21 @@
 class FlightsController < ApplicationController
 
   def index
-    @flights = Flight.all
+    unless params[:find_flights].nil?
+      puts "params: #{params}"
+      @flights_found = Flight.where(from_id: params[:find_flights][:from],
+                                    to_id: params[:find_flights][:to]).all
+      @flights_found.each { |f| p f}
+    end
   end
 
-  def find
-    @airports = Airport.all
+  def list
+    @flights = Flight.all
   end
 
   private
 
     def user_params
-      params.require(:flight).permit(:flight_id, :date, :num_passengers)
+      params.require(:find_flights).permit(:from, :to)
     end
 end

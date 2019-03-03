@@ -1,31 +1,44 @@
-<% i = 0 %>
-<% background = Proc.new { |i| i % 2 == 0 ? "data_a" : "data_b"} %>
-<% provide(:title, 'All Flights') %>
-<h1 style="float:center;margin: 40px 0px 0px 36px;">All Daily Flights</h1>
+<% provide(:title, 'Find Flight') %>
+<h1 style="float:center;margin: 40px 0px 0px 36px;">Find a Flight</h1>
 <div class="box">
-  <div class="table_spacer">
-    <table>
-      <tbody>
-          <tr>
-            <td class="col_name_a">flight:</td>
-            <td class="col_name_b">from:</td>
-            <td class="col_name_a">to:</td>
-            <td class="col_name_b">duration:</td>
-            <td class="col_name_a">departure:</td>
-            <td class="col_name_b">arrival:</td>
-          </tr>
-        <% @flights.each do |flight| %>
-        <% i += 1 %>
-          <tr>
-            <td class="<%= background.call(i) %>"><%= flight.code %></td>
-            <td class="<%= background.call(i + 1) %>"><%= flight.from.name %></td>
-            <td class="<%= background.call(i) %>"><%= flight.to.name %></td>
-            <td class="<%= background.call(i + 1) %>"><%= flight.duration %></td>
-            <td class="<%= background.call(i) %>"><%= flight.departure %></td>
-            <td class="<%= background.call(i + 1) %>"><%= flight.arrival %></td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
+  <div style="margin:5%;">
+    <%= form_for :find_flights, html: {class: "find_flights_form"}, method: :get do |f| %>
+      <%= f.label :from, 'From', class: "Label" %>
+      <%= f.collection_select :from, Airport.all, :id, :name, class: "Text_field",
+        selected: !@flights_found.blank? && @flights_found.first.from.id %>
+      <%= f.label :to, 'To', class: "Label" %>
+      <%= f.collection_select :to, Airport.all, :id, :name, class: "Text_field",
+        selected: !@flights_found.blank? && @flights_found.first.to.id %>
+      <h5><%= f.submit "find flights", class: "Button" %></h5>
+    <% end %>
+
+    <% if !@flights_found.blank? %>
+      <% i = 0 %>
+      <% background = Proc.new { |i| i % 2 == 0 ? "data_a" : "data_b"} %>
+      <h5 style="text-align:center;"><%= @flights_found.count %> flights found:</h5>
+      <table>
+        <tbody>
+            <tr>
+              <td class="col_name_a">flight:</td>
+              <td class="col_name_b">from:</td>
+              <td class="col_name_a">to:</td>
+              <td class="col_name_b">duration:</td>
+              <td class="col_name_a">departure:</td>
+              <td class="col_name_b">arrival:</td>
+            </tr>
+          <% @flights_found.each do |flight| %>
+          <% i += 1 %>
+            <tr>
+              <td class="<%= background.call(i) %>"><%= flight.code %></td>
+              <td class="<%= background.call(i + 1) %>"><%= flight.from.name %></td>
+              <td class="<%= background.call(i) %>"><%= flight.to.name %></td>
+              <td class="<%= background.call(i + 1) %>"><%= flight.duration %></td>
+              <td class="<%= background.call(i) %>"><%= flight.departure %></td>
+              <td class="<%= background.call(i + 1) %>"><%= flight.arrival %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    <% end %>
   </div>
 </div>
