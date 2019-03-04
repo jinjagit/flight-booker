@@ -232,7 +232,6 @@ input {
 
 .box {
   display: block;
-  min-height: 600px;
   width: 800px;
   background-color: $white;
   opacity: 0.75;
@@ -383,6 +382,23 @@ table {
   border-color: $white;
 }
 
+.select_a {
+  background-color: #ffff7a;
+  text-align: center;
+  border-style: solid;
+  border-width: 1px;
+  border-color: $white;
+}
+
+.select_b {
+  background-color: #fcfcb8;
+  text-align: center;
+}
+
 .dropdown {
   width: 65%;
+}
+
+.field {
+  background-color: #ddd;
 }
