@@ -1,0 +1,11 @@
+<% provide(:title, 'Passengers') %>
+<% @flight = Flight.find_by(id: params[:flight_select][:flight_id]) %>
+<h1 style="float:center;margin: 40px 0px 0px 36px;">Passenger Details</h1>
+<div class="box">
+  <h5 style="text-align:center;margin-top:3%;">Details:</h5>
+  <h5 style="text-align:center;;margin-top:3%;"><%= "From: #{@flight.from.name}" %></h5>
+  <h5 style="text-align:center;"><%= "To: #{@flight.to.name}" %></h5>
+  <h5 style="text-align:center;"><%= "Date: #{@date}" %></h5>
+  <h5 style="text-align:center;"><%= "Number of passengers: #{params[:passenger_count]}" %></h5>
+  <br>
+</div>

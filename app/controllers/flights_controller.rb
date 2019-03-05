@@ -6,6 +6,7 @@ class FlightsController < ApplicationController
                                     to_id: params[:find_flights][:to]).all
       @passenger_count = params[:find_flights][:passenger_count]
       @date = params[:find_flights][:date]
+      session[:saved_search] = params
     end
   end
 

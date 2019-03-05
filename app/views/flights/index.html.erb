@@ -18,13 +18,19 @@
       <%= f.select :passenger_count, 1..5,
           selected: !@flights_found.blank? && @passenger_count %>
       <%= f.label :date, 'Date' %>
-      <%= f.date_field :date, style: "width:100%;", class: "field",
-          value: !@flights_found.blank? && @date %>
+      <%= f.date_field :date, min: Date.today + 1, style: "width:100%;", class: "field",
+          value: (!@flights_found.blank? && @date) || (@flights_found.blank? && Date.today + 1) %>
     </div>
-      <h5 style="width:30%;margin-left:35%;"><%= f.submit "find flights", data: { disable_with: "disabled" }, class: "Button" %></h5>
+      <h5 style="width:30%;margin-left:35%;"><%= f.submit "find flights", class: "Button" %></h5>
+    <% end %>
+
+    <% if session[:error_select] == true %>
+      <h5 style="text-align:center;color:red;"><%= "Error! No flight selected." %></h5>
+      <% session[:error_select] = false %>
     <% end %>
 
     <% unless @flights_found.blank? %>
+      <%= form_for :flight_select, url: new_booking_path, method: :get do |f| %>
       <% i = 0 %>
       <% background = Proc.new { |i| i % 2 == 0 ? "data_a" : "data_b"} %>
       <% bckgd_select = Proc.new { |i| i % 2 == 0 ? "select_a" : "select_b"} %>
@@ -49,11 +55,15 @@
               <td class="<%= background.call(i + 1) %>"><%= flight.duration %></td>
               <td class="<%= background.call(i) %>"><%= flight.departure %></td>
               <td class="<%= background.call(i + 1) %>"><%= flight.arrival %></td>
-              <td class="<%= bckgd_select.call(i) %>"><%= check_box_tag 'flight_id', flight.id %></td>
+              <td class="<%= bckgd_select.call(i) %>"><%= f.radio_button :flight_id, flight.id %></td>
             </tr>
           <% end %>
         </tbody>
       </table>
+      <%= hidden_field_tag :passenger_count, @passenger_count %>
+      <%= hidden_field_tag :flight_date, @date %>
+      <h5 style="width:30%;margin:5% 35% 0% 35%;"><%= f.submit "select flight", class: "Button" %></h5>
+      <% end %>
     <% end %>
   </div>
 </div>

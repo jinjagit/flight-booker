@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   root 'flights#index'
   get  '/list',to: 'flights#list'
   resources :flights
+  resources :bookings
 end
