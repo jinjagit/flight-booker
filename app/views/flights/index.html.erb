@@ -24,9 +24,14 @@
       <h5 style="width:30%;margin-left:35%;"><%= f.submit "find flights", class: "Button" %></h5>
     <% end %>
 
-    <% if session[:error_select] == true %>
+    <% if flash[:error_from_to] == true %>
+      <h5 style="text-align:center;color:red;"><%= "Error! 'From' and 'To' cannot be identical." %></h5>
+    <% end %>
+    <% if flash[:error_no_date] == true %>
+      <h5 style="text-align:center;color:red;"><%= "Error! Date must be selected." %></h5>
+    <% end %>
+    <% if flash[:error_select] == true %>
       <h5 style="text-align:center;color:red;"><%= "Error! No flight selected." %></h5>
-      <% session[:error_select] = false %>
     <% end %>
 
     <% unless @flights_found.blank? %>
