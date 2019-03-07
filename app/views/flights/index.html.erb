@@ -60,9 +60,7 @@
               <td class="<%= background.call(i + 1) %>"><%= flight.duration %></td>
               <td class="<%= background.call(i) %>"><%= flight.departure %></td>
               <td class="<%= background.call(i + 1) %>"><%= flight.arrival %></td>
-              <td class="<%= bckgd_select.call(i) %>" style="display:block;">
-                <div style="margin-left:35%;"><%= f.radio_button :flight_id, flight.id %></div>
-              </td>
+              <td class="<%= bckgd_select.call(i) %>"><%= f.radio_button :flight_id, flight.id %></td>
             </tr>
           <% end %>
         </tbody>
