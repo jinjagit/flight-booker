@@ -122,59 +122,6 @@ header {
   }
 }
 
-#name {
-  display: inline-block;
-  float: left;
-  margin-right: 10px;
-  margin-left: 20px;
-  font-size: 1.7em;
-  color: $medium_purple;
-  letter-spacing: -1px;
-  padding-top: 9px;
-  font-weight: bold;
-  &:hover {
-    color: $white;
-    text-decoration: none;
-  }
-}
-
-/* sidebar */
-
-aside {
-  section.user_info {
-    margin-top: 20px;
-  }
-  section {
-    padding: 10px 0;
-    margin-top: 20px;
-    &:first-child {
-      border: 0;
-      padding-top: 0;
-    }
-    span {
-      display: block;
-      margin-bottom: 3px;
-      line-height: 1;
-    }
-    h1 {
-      font-size: 1.4em;
-      text-align: left;
-      letter-spacing: -1px;
-      margin-bottom: 3px;
-      margin-top: 0px;
-    }
-  }
-}
-
-.gravatar {
-  float: left;
-  margin-right: 10px;
-}
-
-.gravatar_edit {
-  margin-top: 15px;
-}
-
 /* forms */
 
 input, textarea, select, .uneditable-input {
@@ -187,35 +134,6 @@ input, textarea, select, .uneditable-input {
 
 input {
   height: auto !important;
-}
-
-#error_explanation {
-  color: red;
-  ul {
-    color: red;
-    margin: 0 0 30px 0;
-  }
-}
-
-.field_with_errors {
-  @extend .has-error;
-  .form-control {
-    color: $state-danger-text;
-  }
-}
-
-.checkbox {
-  margin-top: -10px;
-  margin-bottom: 10px;
-  span {
-    margin-left: 20px;
-    font-weight: normal;
-  }
-}
-
-#session_remember_me {
-  width: auto;
-  margin-left: 0;
 }
 
 /* miscellaneous */
@@ -242,46 +160,6 @@ input {
   border-radius: 10px;
 }
 
-.stretch_box {
-  display: block;
-  width: 800px;
-  background-color: $white;
-  opacity: 0.75;
-  margin: 15% auto;
-  border-style: solid;
-  border-width: 3px;
-  border-color: $opacity-purple;
-  border-radius: 10px;
-}
-
-.big_container {
-  margin: 6.5%;
-}
-
-.left_box {
-  display: inline-block;
-  width: 50%;
-}
-
-.right_box {
-  display: inline-block;
-  float: right;
-  width: 50%;
-}
-
-.event_box {
-  display: block;
-  width: 80%;
-  background-color: $white;
-  opacity: 0.75;
-  margin: 5% auto;
-  border-style: solid;
-  border-width: 3px;
-  border-color: $opacity-purple;
-  border-radius: 10px;
-  text-align: center;
-}
-
 .btn-primary, .btn-primary:active, .btn-primary:visited {
     background-color: $basic_purple !important;
     border-color: $dark-blue;
@@ -290,56 +168,6 @@ input {
 .btn-primary:hover {
   background-color: #9b52c4 !important;
   border-color: $dark-blue;
-}
-
-.shadow {
-  text-shadow: 0px 0px 2px $white;
-}
-
-hr {
-  width: 80%;
-  border-width: 2px;
-  border-color: $opacity-purple;
-}
-
-.checkbox-inline {
-  margin-top: 20px;
-  margin-bottom: 10px;
-  h5 {
-    margin-top: -20px;
-  }
-}
-
-#row {
-  height: 40px;
-  width: 100%
-}
-
-#check_cell {
-  height: 30px;
-  width: 30px;
-  display: inline-block;
-}
-
-#name_cell {
-  height: 30px;
-  width: 85%;
-  display: inline-block;
-}
-
-#from {
-  margin-top: 15px;
-  margin-bottom: -7px;
-}
-
-#p_large {
-  font-size: 1.5em;
-  margin-top: 6%;
-}
-
-#p_small {
-  font-size: 1.4em;
-  margin-top: 4%;
 }
 
 table {
@@ -401,4 +229,22 @@ table {
 
 .field {
   background-color: #ddd;
+}
+
+/* misc */
+
+#icon_div {
+  vertical-align: middle;
+  text-align:center;
+}
+
+#github_icon {
+  width: 40px;
+  height: 40px;
+  margin-top: 75px;
+  background-color: #333;
+}
+
+#github_icon:hover {
+  background-color: #666;
 }
