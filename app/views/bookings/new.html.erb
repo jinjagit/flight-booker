@@ -1,5 +1,5 @@
 <% provide(:title, 'Passengers') %>
-<% @flight = Flight.find_by(id: params[:flight_select][:flight_id]) %>
+<% @flight = @booking.flight %>
 <h1 style="float:center;margin: 40px 0px 0px 36px;">Passenger Details</h1>
 <div class="box">
   <h5 style="text-align:center;margin-top:3%;">Summary:</h5>
