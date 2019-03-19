@@ -2,7 +2,7 @@
 
 Simon Tharby's solution to [Project: Building Advanced Forms](https://www.theodinproject.com/courses/ruby-on-rails/lessons/building-advanced-forms?ref=lnav), Advanced Forms and Active Record section, Ruby on Rails unit, Odin Project.
 
-[View in browser](https://dream-flights.simontharby.com/)
+[View in browser](https://dream-flights-simontharby.herokuapp.com/)
 
 ## Divergence from Instructions:
 
