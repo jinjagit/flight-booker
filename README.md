@@ -1,6 +1,6 @@
 # README
 
-Simon Tharby's solution to [Project: Building Advanced Forms](https://www.theodinproject.com/courses/ruby-on-rails/lessons/building-advanced-forms?ref=lnav), Advanced Forms and Active Record section, Ruby on Rails unit, Odin Project.
+Simon Tharby's solution to [Project: Building Advanced Forms](https://www.theodinproject.com/courses/ruby-on-rails/lessons/building-advanced-forms?ref=lnav), Advanced Forms and Active Record section, Ruby on Rails unit, Odin Project, AND solution to [Project: Sending Confirmation Emails](https://www.theodinproject.com/courses/ruby-on-rails/lessons/sending-confirmation-emails?ref=lnav), APIs, Mailers and Advanced Topics section, Ruby on Rails unit, Odin Project (combined in this one app).
 
 [View in browser](https://dream-flights-simontharby.herokuapp.com/) \*The server for this app may need to initialize and this may take up to 30 seconds.
 
