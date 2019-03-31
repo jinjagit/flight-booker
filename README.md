@@ -34,6 +34,14 @@ Flights index - Shows all daily flights:
 
 ![fb_index.png](app/assets/images/fb_index.png)
 
+HTML email, sent by ActionMailer:
+
+![email_html.png](app/assets/images/email_html.png)
+
+Text email, sent by ActionMailer:
+
+![email_txt.png](app/assets/images/email_txt.png)
+
 ## Getting started:
 
 To get started with the app, clone the repo and then install the needed gems:
